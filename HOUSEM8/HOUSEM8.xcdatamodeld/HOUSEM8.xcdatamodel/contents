@@ -1,4 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Calendar" representedClassName="Calendar" syncable="YES" codeGenerationType="class">
+        <attribute name="calendarName" optional="YES" attributeType="String"/>
+        <attribute name="colour" optional="YES" attributeType="String"/>
+        <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalendarEvent" inverseName="calendar" inverseEntity="CalendarEvent"/>
+        <relationship name="users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="calendars" inverseEntity="User"/>
+    </entity>
+    <entity name="CalendarEvent" representedClassName="CalendarEvent" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="eventDesc" optional="YES" attributeType="String"/>
+        <attribute name="eventName" optional="YES" attributeType="String"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <relationship name="calendar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Calendar" inverseName="events" inverseEntity="Calendar"/>
+        <relationship name="reminder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reminder"/>
+    </entity>
+    <entity name="Home" representedClassName="Home" syncable="YES" codeGenerationType="class">
+        <attribute name="houseName" optional="YES" attributeType="String"/>
+        <relationship name="users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="homes" inverseEntity="User"/>
+    </entity>
+    <entity name="List" representedClassName="List" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dateLastModified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="listName" optional="YES" attributeType="String"/>
+        <relationship name="listItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListItem" inverseName="list" inverseEntity="ListItem"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="lists" inverseEntity="User"/>
+    </entity>
+    <entity name="ListItem" representedClassName="ListItem" syncable="YES" codeGenerationType="class">
+        <attribute name="complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="itemDesc" optional="YES" attributeType="String"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="listItems" inverseEntity="List"/>
+        <relationship name="reminder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reminder"/>
+    </entity>
+    <entity name="Payment" representedClassName="Payment" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="paidDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="paymentDesc" optional="YES" attributeType="String"/>
+        <attribute name="recipient" optional="YES" attributeType="String"/>
+        <relationship name="reminder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reminder"/>
+        <relationship name="users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="payments" inverseEntity="User"/>
+    </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+        <attribute name="alert" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="repeat" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="fname" optional="YES" attributeType="String"/>
+        <attribute name="lname" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="calendars" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Calendar" inverseName="users" inverseEntity="Calendar"/>
+        <relationship name="homes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Home" inverseName="users" inverseEntity="Home"/>
+        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="List" inverseName="users" inverseEntity="List"/>
+        <relationship name="payments" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Payment" inverseName="users" inverseEntity="Payment"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="List" positionX="-54" positionY="18" width="128" height="104"/>
+        <element name="ListItem" positionX="-36" positionY="45" width="128" height="89"/>
+        <element name="Calendar" positionX="-18" positionY="54" width="128" height="89"/>
+        <element name="CalendarEvent" positionX="0" positionY="72" width="128" height="119"/>
+        <element name="Reminder" positionX="18" positionY="99" width="128" height="74"/>
+        <element name="Payment" positionX="27" positionY="135" width="128" height="134"/>
+        <element name="Home" positionX="-27" positionY="117" width="128" height="59"/>
+    </elements>
 </model>
