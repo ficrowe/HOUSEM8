@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeTableViewController: UITableViewController {
+class HomeTableViewController: BaseTableViewController {
     
     // Defining sections and cells
     let SECTION_HOME = 0

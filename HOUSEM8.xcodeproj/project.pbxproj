@@ -51,6 +51,7 @@
 		1C41A49F267C892900096D41 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1C41A49E267C892900096D41 /* FirebaseStorage */; };
 		1C41A4A6267C8B4200096D41 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C41A4A5267C8B4200096D41 /* EditUserViewController.swift */; };
 		1C41A4B2267CF50C00096D41 /* defaultProfilePic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1C41A4B1267CF50C00096D41 /* defaultProfilePic.jpeg */; };
+		1C45470226C6CCEC00321977 /* SwiftLintFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 1C45470126C6CCEC00321977 /* SwiftLintFramework */; };
 		1C5144BC265F44B70065BFD6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5144BB265F44B70065BFD6 /* UIViewController.swift */; };
 		1C92D1122665FB9700668864 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C92D1112665FB9700668864 /* GoogleService-Info.plist */; };
 		1C92D116266DEDDF00668864 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C92D115266DEDDF00668864 /* NewListViewController.swift */; };
@@ -132,6 +133,7 @@
 				1C41A497267C892900096D41 /* FirebaseAuth in Frameworks */,
 				1C41A499267C892900096D41 /* FirebaseDatabase in Frameworks */,
 				1C41A49D267C892900096D41 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				1C45470226C6CCEC00321977 /* SwiftLintFramework in Frameworks */,
 				1C41A49F267C892900096D41 /* FirebaseStorage in Frameworks */,
 				1C41A49B267C892900096D41 /* FirebaseFirestore in Frameworks */,
 				1CB72B022674D2F800B0282A /* MessageKit in Frameworks */,
@@ -312,6 +314,7 @@
 				1C41A49A267C892900096D41 /* FirebaseFirestore */,
 				1C41A49C267C892900096D41 /* FirebaseFirestoreSwift-Beta */,
 				1C41A49E267C892900096D41 /* FirebaseStorage */,
+				1C45470126C6CCEC00321977 /* SwiftLintFramework */,
 			);
 			productName = HOUSEM8;
 			productReference = 1C01D8802641C58F004B7986 /* HOUSEM8.app */;
@@ -343,6 +346,7 @@
 			packageReferences = (
 				1C01D8F02642F1AF004B7986 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1CB72B002674D2F800B0282A /* XCRemoteSwiftPackageReference "MessageKit" */,
+				1C45470026C6CCEC00321977 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 1C01D8812641C58F004B7986 /* Products */;
 			projectDirPath = "";
@@ -628,6 +632,14 @@
 				minimumVersion = 7.11.1;
 			};
 		};
+		1C45470026C6CCEC00321977 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.43.1;
+			};
+		};
 		1CB72B002674D2F800B0282A /* XCRemoteSwiftPackageReference "MessageKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MessageKit/MessageKit.git";
@@ -668,6 +680,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1C01D8F02642F1AF004B7986 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		1C45470126C6CCEC00321977 /* SwiftLintFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C45470026C6CCEC00321977 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = SwiftLintFramework;
 		};
 		1CB72B012674D2F800B0282A /* MessageKit */ = {
 			isa = XCSwiftPackageProductDependency;
